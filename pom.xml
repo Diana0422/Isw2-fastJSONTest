@@ -18,7 +18,7 @@
     <maven.compiler.target>1.7</maven.compiler.target>
     <sonar.organization>diana0422</sonar.organization>
     <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-    <sonar.coverage.jacoco.xmlReportPaths>${basedir}/target/jacoco-gen/fastjson-coverage/file.xml</sonar.coverage.jacoco.xmlReportPaths>
+    <sonar.coverage.jacoco.xmlReportPaths>target/jacoco-gen/fastjson-coverage/file.xml</sonar.coverage.jacoco.xmlReportPaths>
     <jacoco.skip.instrument>true</jacoco.skip.instrument>
     <jacoco.version>0.8.4</jacoco.version>
     <script.to.extract.windows>java -jar src\test\resources\jacococli.jar report target\jacoco.exec
@@ -338,7 +338,7 @@
                     <argument>--sourcefiles</argument>
                     <argument>src/test/java</argument>
                     <argument>--html</argument>
-                    <argument>target/jacoco-gen/fastjson-coverage/</argument>
+                    <argument>target/jacoco-gen/fastjson-coverage/index.html</argument>
                     <argument>--xml</argument>
                     <argument>target/jacoco-gen/fastjson-coverage/file.xml</argument>
                     <argument>--csv</argument>
