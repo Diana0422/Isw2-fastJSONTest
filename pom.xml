@@ -21,8 +21,17 @@
     <sonar.coverage.jacoco.xmlReportPaths>${basedir}/target/jacoco-gen/fastjson-coverage/file.xml</sonar.coverage.jacoco.xmlReportPaths>
     <jacoco.skip.instrument>true</jacoco.skip.instrument>
     <jacoco.version>0.8.4</jacoco.version>
-    <script.to.extract.windows>java -jar src\test\resources\jacococli.jar report target\jacoco.exec --classfiles src\test\resources\fastjson-1.2.79.jar --sourcefiles ${basedir}\src\test\java --html target\jacoco-gen\fastjson-coverage\ --xml target\jacoco-gen\fastjson-coverage\file.xml --csv target\jacoco-gen\fastjson-coverage\file.csv</script.to.extract.windows>
-    <script.to.extract.unix>java -jar src/test/resources/jacococli.jar report target/jacoco.exec --classfiles src/test/resources/fastjson-1.2.79.jar --sourcefiles ${basedir}/src/test/java --html target/jacoco-gen/fastjson-coverage/ --xml target/jacoco-gen/fastjson-coverage/file.xml --csv target/jacoco-gen/fastjson-coverage/file.csv</script.to.extract.unix>
+    <script.to.extract.windows>java -jar src\test\resources\jacococli.jar report target\jacoco.exec
+      --classfiles src\test\resources\fastjson-1.2.79.jar
+      --sourcefiles ${basedir}\src\test\java
+      --html target\jacoco-gen\fastjson-coverage\
+      --xml target\jacoco-gen\fastjson-coverage\file.xml
+      --csv target\jacoco-gen\fastjson-coverage\file.csv</script.to.extract.windows>
+    <script.to.extract.unix>java -jar src/test/resources/jacococli.jar report target/jacoco.exec
+      --classfiles src/test/resources/fastjson-1.2.79.jar
+      --sourcefiles ${basedir}/src/test/java
+      --html target/jacoco-gen/fastjson-coverage/ --xml target/jacoco-gen/fastjson-coverage/file.xml
+      --csv target/jacoco-gen/fastjson-coverage/file.csv</script.to.extract.unix>
 <!--    <script.to.instrument.windows>java -jar ${basedir}\src\test\resources\jacococli.jar instrument ${basedir}\src\test\resources\fastjson-1.2.79.jar &#45;&#45;dest${basedir}\src\test\resources\fastjson-1.2.79-fat.jar</script.to.instrument.windows>-->
 <!--    <script.to.instrument.unix>java -jar ${basedir}/src/test/resources/jacococli.jar instrument ${basedir}/src/test/resources/fastjson-1.2.79.jar &#45;&#45;dest ${basedir}/src/test/resources/fastjson-1.2.79-fat.jar</script.to.instrument.unix>-->
     <script.executor.windows>powershell.exe</script.executor.windows>
@@ -317,8 +326,24 @@
                   <goal>exec</goal>
                 </goals>
                 <configuration>
-                  <executable>${script.executor.unix}</executable>
-                  <commandlineArgs>${script.to.extract.unix}</commandlineArgs>
+                  <workingDirectory>${project.basedir}</workingDirectory>
+                  <executable>java</executable>
+                  <arguments>
+                    <argument>-jar</argument>
+                    <argument>src/test/resources/jacococli.jar</argument>
+                    <argument>report</argument>
+                    <argument>target/jacoco.exec</argument>
+                    <argument>--classfiles</argument>
+                    <argument>src/test/resources/fastjson-1.2.79.jar</argument>
+                    <argument>--sourcefiles</argument>
+                    <argument>src/test/java</argument>
+                    <argument>--html</argument>
+                    <argument>target/jacoco-gen/fastjson-coverage/</argument>
+                    <argument>--xml</argument>
+                    <argument>target/jacoco-gen/fastjson-coverage/file.xml</argument>
+                    <argument>--csv</argument>
+                    <argument>target/jacoco-gen/fastjson-coverage/file.csv</argument>
+                  </arguments>
                 </configuration>
               </execution>
 
