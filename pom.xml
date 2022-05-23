@@ -18,6 +18,7 @@
     <maven.compiler.target>1.7</maven.compiler.target>
     <sonar.organization>diana0422</sonar.organization>
     <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+    <sonar.coverage.jacoco.xmlReportPaths>${basedir}/target/jacoco-gen/fastjson-coverage/file.xml</sonar.coverage.jacoco.xmlReportPaths>
     <jacoco.skip.instrument>true</jacoco.skip.instrument>
     <jacoco.version>0.8.4</jacoco.version>
     <script.to.extract.windows>java -jar src\test\resources\jacococli.jar report target\jacoco.exec --classfiles src\test\resources\fastjson-1.2.79.jar --sourcefiles ${basedir}\src\test\java --html target\jacoco-gen\fastjson-coverage\ --xml target\jacoco-gen\fastjson-coverage\file.xml --csv target\jacoco-gen\fastjson-coverage\file.csv</script.to.extract.windows>
@@ -359,6 +360,7 @@
           <plugin>
             <groupId>org.jacoco</groupId>
             <artifactId>jacoco-maven-plugin</artifactId>
+            <version>0.8.7</version>
             <executions>
               <execution>
                 <id>prepare-agent</id>
@@ -368,13 +370,18 @@
               </execution>
               <execution>
                 <id>report</id>
-                <phase>test</phase>
                 <goals>
                   <goal>report</goal>
                 </goals>
+                <configuration>
+                  <formats>
+                    <format>XML</format>
+                  </formats>
+                </configuration>
               </execution>
             </executions>
           </plugin>
+
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-surefire-plugin</artifactId>
