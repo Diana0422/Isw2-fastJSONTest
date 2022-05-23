@@ -1,5 +1,3 @@
-package org.example;
-
 import com.alibaba.fastjson.JSONPatch;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,14 +9,14 @@ import java.util.Collection;
 import static junit.framework.TestCase.assertEquals;
 
 @RunWith(Parameterized.class)
-public class ParameterizedJSONPatchTest_0 {
+public class ParameterizedJSONPatchTest {
     private String original;
     private String patch;
     private String expectedResult;
 
     /* test class constructor */
-    public ParameterizedJSONPatchTest_0(String original, String patch, String expectedResult) {
-        this.configure(original, patch, expectedResult);
+    public ParameterizedJSONPatchTest(String original, String patch, String expected) {
+        this.configure(original, patch, expected);
     }
 
     /* configure method */

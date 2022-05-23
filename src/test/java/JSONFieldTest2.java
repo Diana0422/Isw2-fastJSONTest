@@ -1,5 +1,3 @@
-package org.example;
-
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.annotation.JSONField;
 import org.junit.Assert;
@@ -10,16 +8,15 @@ import org.junit.runners.Parameterized;
 import java.util.Arrays;
 import java.util.Collection;
 
-@RunWith(Parameterized.class)
-public class ParameterizedJSONFieldTest {
+public class JSONFieldTest2 {
     private String expectedResult;
     private int id;
     private String name;
     private VO vo;
 
     /* test class constructor */
-    public ParameterizedJSONFieldTest(int id, String name, String expectedResult) {
-        this.configure(id, name, expectedResult);
+    public JSONFieldTest2() {
+        this.configure(123, "xx", "{\"id\":123}");
     }
 
     /* configure method */
@@ -30,13 +27,6 @@ public class ParameterizedJSONFieldTest {
         this.vo.setId(this.id);
         this.vo.setName(this.name);
         this.expectedResult = expectedResult;
-    }
-
-    @Parameterized.Parameters
-    public static Collection<Object[]> getParameters() {
-        return Arrays.asList(new Object[][] {
-                {123, "xx", "{\"id\":123}"}
-        });
     }
 
     @Test
