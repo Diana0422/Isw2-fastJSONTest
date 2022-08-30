@@ -56,7 +56,7 @@ public class ParameterizedJSONPatchTest {
 
     @Test
     public void runTest() {
-//        String result = JSONPatch.apply(this.original, this.patch);
-//        assertEquals(this.expectedResult, result);
+        String result = JSONPatch.apply(this.original, this.patch);
+        assertEquals(this.expectedResult, result);
     }
 }
