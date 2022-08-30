@@ -1,3 +1,5 @@
+package parametrized;
+
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.annotation.JSONField;
 import org.junit.Assert;
@@ -14,6 +16,7 @@ public class ParameterizedJSONFieldTest {
     private int id;
     private String name;
     private VO vo;
+    private boolean serialize;
 
     /* test class constructor */
     public ParameterizedJSONFieldTest(int id, String name, String expectedResult) {
